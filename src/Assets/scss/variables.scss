@@ -1,0 +1,87 @@
+:root {
+  --primary: #0078d4;
+  --secondary: #232c6d;
+  --white: #ffffff;
+  --grey: #eeeeee;
+  --black: #000000;
+  --primary-bg-color: #1c2536;
+  --secondary-bg-color: #0078d4;
+  --error: #f44242;
+  --pri-grey: #d5d5d5;
+  --secondary-green: rgb(14, 154, 51);
+  --declined-red: #d31212;
+  --rejected-red: #ff0000;
+  --sec-text-color: #333;
+  --ter-text-color: #666;
+
+  --primary-font: "Open Sans";
+  --font-family: "Open Sans", -apple-system, "Ubuntu", "Helvetica Neue",
+    sans-serif;
+
+  --primary-opacity-9: rgb(0, 120, 212, 0.9);
+  --text-light-1: rgb(102, 102, 102);
+  --pri-box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.1);
+
+  //input field
+  --pri-border: 1px solid #e0e0e0;
+  --sec-border: 1px solid rgba(0, 0, 0, 0.3);
+  --placeholder-color: #a19e9e;
+  --label-color: #4a4a4a;
+
+  //button  start
+  --btn-pri-large-width: 14.25rem; /* 228px */
+  --btn-pri-large-height: 3.5rem; /* 56px */
+
+  --btn-pri-medium-width: 8.75rem; /* 140px */
+  --btn-pri-medium-height: 3.125rem; /* 50px */
+
+  --btn-pri-small-width: 10.625rem; /* 170px */
+  --btn-pri-small-height: 2.31rem; /* 37px */
+
+  --btn-icon-color: #adabab;
+  --sec-btn-border-color: #d9d9d9;
+  --sec-btn-text-color: #333;
+  --sec-btn-hoverBg-color: rgba(56, 135, 203, 0.08);
+
+  //button end
+
+  //scrollbar
+  --pri-scrollbar-width: 5px;
+  --pri-scrollbar-height: 5px;
+  --scrollbar-border-radius: 5px;
+
+  // The background color of the mask, used to cover the content below the mask, Modal,
+  --colorBgMask: rgba(0, 0, 0, 0.6);
+  --pri-modal-padding: 20px;
+
+  --avatar-bg: rgb(117, 117, 117);
+
+  --spacing-size: min(21px, 3vw);
+
+  --pri-spacing: 0 min(21px, 3vw);
+  // --header-height: 130px;
+
+  // footer
+  --footer-min-height: 56px;
+  --footer-sperator-border: 1px solid rgba(240, 239, 239, 0.3);
+
+  //antd upload start
+  --pri-upload-size: 160px;
+  //antd upload end
+
+  // ant tabs
+  --tab-bg-color: #e9e9e9;
+
+  //table
+  --table-row-hover: #e6e6e6;
+
+  //add cart
+  --add-cart-bg: #f7f7f7;
+
+  //lease dropdown
+  --lease-dropdown-bg: #d9ebff;
+
+  //toggle status
+  --toggle-active: #1ea11e;
+  --toggle-active-bg: #1ea11e1a;
+}

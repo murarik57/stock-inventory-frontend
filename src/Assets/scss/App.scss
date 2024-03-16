@@ -1,0 +1,38 @@
+@import "base";
+@import "variables";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @apply h-screen text-14;
+}
+
+//dont change this only for testing purpose
+.c1 {
+  background-color: #17a2b8 !important;
+}
+
+.c2 {
+  background-color: #7367f0 !important;
+}
+
+.c3 {
+  background-color: yellowgreen !important;
+}
+.c4 {
+  background-color: rgb(68, 36, 48) !important;
+}

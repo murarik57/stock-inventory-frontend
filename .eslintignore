@@ -1,0 +1,8 @@
+build
+node_modules
+yarn.lock
+package-lock.json
+public
+*.config.js
+src/assets
+*.conf
