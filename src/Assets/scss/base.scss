@@ -1,0 +1,94 @@
+html,
+body {
+  font-style: normal;
+  font-family: var(--font-family) !important;
+  font-weight: 400;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  color: var(--error);
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.pointer {
+  @apply cursor-pointer;
+}
+
+.full {
+  @apply w-full h-full;
+}
+
+/* Scroll bar stylings start*/
+::-webkit-scrollbar {
+  width: var(--pri-scrollbar-width);
+  height: var(--pri-scrollbar-height);
+  background-color: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: var(--scrollbar-border-radius);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+::-webkit-resizer {
+  background: transparent !important;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Scroll bar stylings end*/
+
+/* Spinner stylings start*/
+.spinner {
+  @apply w-full flex justify-center items-center;
+}
+.primary-border {
+  border-radius: 0;
+  border-bottom: var(--pri-border) !important;
+  &.error-border {
+    border-bottom: 1px solid var(--error) !important;
+  }
+}
+
+.loader {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(195, 195, 195, 0.6);
+  border-radius: 50%;
+  border-top-color: var(--primary);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+}
+.dash-card {
+  box-shadow: var(--pri-box-shadow);
+  width: 200px;
+  padding: 20px;
+  font-weight: 600;
+  border: 1px solid rgb(232, 226, 226);
+  border-radius: 5px;
+}

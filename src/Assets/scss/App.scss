@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 @import "base";
 @import "variables";
 
@@ -19,6 +21,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   @apply h-screen text-14;
+}
+
+.--main-container {
+  .trigger {
+    padding: 0 24px;
+    font-size: 18px;
+    line-height: 64px;
+    cursor: pointer;
+    transition: color 0.3s;
+    color: #6e6b7b;
+  }
+  .trigger:hover {
+    color: var(--primary);
+  }
+
+  .ant-layout {
+    background-color: var(--primary-bg);
+  }
 }
 
 //dont change this only for testing purpose
