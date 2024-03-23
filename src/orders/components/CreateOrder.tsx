@@ -294,7 +294,7 @@ const CreateOrder = () => {
                   <tr key={id}>
                     <td>{index + 1}</td>
                     <td>{foundProduct?.name}</td>
-                    <td>{foundProduct?.quantity}</td>
+                    <td className="text-center">{foundProduct?.quantity}</td>
                     <td>
                       <InputNumber
                         max={foundProduct?.quantity}

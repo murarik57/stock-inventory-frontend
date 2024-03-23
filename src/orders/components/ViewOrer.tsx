@@ -58,13 +58,17 @@ const ViewOrer = () => {
       <Row className="mt-5 gap-3" align={"middle"}>
         <Col className="whitespace-nowrap text-16">Invoice:</Col>
         <Col className="text-16">
-          <Button
-            type="primary"
-            icon={<EyeOutlined />}
-            onClick={() => window.open(order?.invoice?.path, "_blank")}
-          >
-            View Invoice
-          </Button>
+          {order?.invoice?.path ? (
+            <Button
+              type="primary"
+              icon={<EyeOutlined />}
+              onClick={() => window.open(order?.invoice?.path, "_blank")}
+            >
+              View Invoice
+            </Button>
+          ) : (
+            <span className="text-gray-500">not uploaded</span>
+          )}
         </Col>
       </Row>
       <Row className="mt-5 gap-3">
@@ -79,7 +83,7 @@ const ViewOrer = () => {
               {order?.products?.map((product) => (
                 <tr key={product?._id}>
                   <td>{product?.name}</td>
-                  <td>{product?.quantity}</td>
+                  <td className="text-center">{product?.quantity}</td>
                 </tr>
               ))}
             </tbody>
