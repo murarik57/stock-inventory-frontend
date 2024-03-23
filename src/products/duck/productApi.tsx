@@ -20,9 +20,9 @@ export const productApi = createApi({
       query: () => AppUrl.PRODUCT,
       providesTags: (result, error) => {
         if (error) return [];
-        const tags: any = result?.data.map((application) => ({
+        const tags: any = result?.data.map((product) => ({
           type: tagName,
-          id: application?._id,
+          id: product?._id,
         }));
         const allTags = [...tags, tagName];
 

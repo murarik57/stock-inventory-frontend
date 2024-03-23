@@ -13,12 +13,14 @@ import { TypedUseSelectorHook, useSelector } from "react-redux";
 import extraReducer from "./extraSlice";
 import { authApi } from "authContainer/duck/authAPI";
 import { productApi } from "products/duck/productApi";
+import { orderApi } from "orders/duck/orderApi";
 
 const { ACTION_TYPES } = constants;
 
 const appReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [productApi.reducerPath]: productApi.reducer,
+  [orderApi.reducerPath]: orderApi.reducer,
   loggedInUser: loggedInUserReducer,
   extra: extraReducer,
 });
@@ -26,7 +28,7 @@ const appReducer = combineReducers({
 export type RootState = ReturnType<typeof appReducer>;
 export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 export const createRtkAPIMiddlewares = () => {
-  return [authApi.middleware, productApi.middleware];
+  return [authApi.middleware, productApi.middleware, orderApi.middleware];
 };
 
 const rootReducer = (

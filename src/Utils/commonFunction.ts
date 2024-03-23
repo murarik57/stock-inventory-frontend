@@ -3,6 +3,7 @@ import constants from "./constants";
 import { jwtDecode } from "jwt-decode";
 import { AvatarProps, notification } from "antd";
 import { ApiResponseError } from "Interfaces/global.interface";
+import Upload, { RcFile } from "antd/es/upload";
 
 const { ACCESS_TOKEN, NOTIFICATION_DURATION, NOTIFICATION_POSITION } =
   constants;
@@ -85,4 +86,24 @@ export const getAvatarProps = (imgSrc: string = "") => {
     props.src = imgSrc;
   }
   return props;
+};
+
+export const beforeUpload = (file: RcFile) => {
+  const supportedFileType = [
+    "image/png",
+    "image/jpg",
+    "image/jpeg",
+    "application/pdf",
+  ];
+
+  let isAcceptable = supportedFileType.includes(file?.type);
+  if (!isAcceptable) {
+    showNotification("error", "Please upload PDF,JEPG, JGP or PNG file only");
+  }
+  const isLessthan7MB = file.size / 1024 / 1024 < 8;
+  if (!isLessthan7MB) {
+    isAcceptable = false;
+    showNotification("error", "Please upload file less than 8MB");
+  }
+  return isAcceptable || Upload.LIST_IGNORE;
 };

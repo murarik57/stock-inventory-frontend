@@ -13,6 +13,7 @@ const AppUrl = {
   LOGIN_URL: "/auth/login",
   PROFILE: "/users/getCurrentUser",
   PRODUCT: "/products",
+  ORDER: "/orders",
 };
 
 Object.freeze(AppUrl);

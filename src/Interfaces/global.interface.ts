@@ -6,7 +6,8 @@ export interface MetaSuccess extends MetaCommon {
   message: string;
 }
 
-export interface ApiResponseError extends MetaCommon {
+export interface ApiResponseError {
+  meta: MetaSuccess;
   data: {
     message?: string;
   };
@@ -16,7 +17,8 @@ export interface ErrorObject {
   [key: string]: string;
 }
 
-export interface ResponseTypeOnlyId extends MetaSuccess {
+export interface ResponseTypeOnlyId {
+  meta: MetaSuccess;
   data: {
     _id: string;
   };

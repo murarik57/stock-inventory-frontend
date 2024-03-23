@@ -36,7 +36,7 @@ const AddProductModal = ({
 
   const [
     handleProduct,
-    { isError, error: mutationError, isSuccess, isLoading },
+    { isError, error: mutationError, isSuccess, isLoading, data },
   ] = productMutation();
 
   useEffect(() => {
@@ -45,9 +45,10 @@ const AddProductModal = ({
     }
 
     if (isSuccess) {
+      showNotification("success", data?.message ?? data?.meta?.message);
       handleModal(false);
     }
-  }, [handleModal, isError, isSuccess, mutationError]);
+  }, [data, handleModal, isError, isSuccess, mutationError]);
 
   useEffect(() => {
     if (selectedProduct) {

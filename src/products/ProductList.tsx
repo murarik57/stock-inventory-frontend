@@ -15,10 +15,10 @@ const ProductList = () => {
     useLazyProductListQuery();
 
   useEffect(() => {
-    if (error) {
+    if (isError) {
       showNotification("error", error);
     }
-  }, [error]);
+  }, [error, isError]);
 
   useEffect(() => {
     getAllProducts();
