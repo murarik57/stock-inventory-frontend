@@ -27,6 +27,12 @@ const App: React.FC = () => {
               headerPadding: 0,
               headerColor: "var(--white)",
             },
+            Table: {
+              headerBg: "#ebebeb",
+            },
+            Modal: {
+              // padding: 0,
+            },
           },
         }}
       >

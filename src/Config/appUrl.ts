@@ -12,6 +12,7 @@ const { REACT_APP_BASE_URL } = process.env;
 const AppUrl = {
   LOGIN_URL: "/auth/login",
   PROFILE: "/users/getCurrentUser",
+  PRODUCT: "/products",
 };
 
 Object.freeze(AppUrl);

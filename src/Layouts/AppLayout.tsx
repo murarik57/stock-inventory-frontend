@@ -60,6 +60,7 @@ const AppLayoutContainer: React.FC<AppLayoutProps> = ({ children }) => {
             minHeight: 280,
             borderRadius: "10px",
             backgroundColor: "#fff",
+            overflowY: "scroll",
           }}
         >
           {children}

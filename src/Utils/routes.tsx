@@ -7,6 +7,8 @@ const routes = {
 
   PRODUCT: "/app/product",
   ORDER: "/app/order",
+  VIEW_ORDER: "/app/order/:id",
+  NEW_ORDER: "/app/order/new",
 };
 
 Object.freeze(routes);

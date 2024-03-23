@@ -1,14 +1,21 @@
 .primary-modal {
   width: 520px;
-  transform-origin: -114px 698.078px;
 
   .ant-modal-title {
     font-size: 1.45rem !important;
     font-weight: 700;
   }
 
-  .ant-modal-header,
-  .ant-modal-content {
+  .ant-modal-header {
+    background-color: #ebebeb;
     border-radius: 8px !important;
+    padding: 10px 15px;
+  }
+  .ant-modal-content {
+    padding: 0;
+  }
+  .ant-modal-body,
+  .ant-modal-footer {
+    padding: 15px;
   }
 }

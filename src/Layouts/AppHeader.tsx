@@ -36,7 +36,7 @@ const AppHeader = ({ toggleSidebar, collapsed }: AppHeaderProps) => {
   return (
     <Layout.Header className="appHeader">
       <Row align="middle" justify="space-between" wrap={false}>
-        <Row align="middle" className="nowrap">
+        <Row align="middle" wrap={false}>
           <Button
             type="text"
             icon={
@@ -62,7 +62,9 @@ const AppHeader = ({ toggleSidebar, collapsed }: AppHeaderProps) => {
           className="pointer mr20"
           wrap={false}
         >
-          <span className="mr-2">{loggedInUser?.name}</span>
+          <span className="mr-2 text-ellipsis overflow-hidden whitespace-nowrap">
+            {loggedInUser?.name}
+          </span>
           <Dropdown
             rootClassName="profile-dropdown "
             menu={{
@@ -78,7 +80,7 @@ const AppHeader = ({ toggleSidebar, collapsed }: AppHeaderProps) => {
             trigger={["click"]}
             arrow
           >
-            <Row className="pointer" align={"middle"}>
+            <Row className="pointer" align={"middle"} wrap={false}>
               <Avatar
                 style={{
                   backgroundColor: "grey",

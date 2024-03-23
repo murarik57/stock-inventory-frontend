@@ -15,3 +15,9 @@ export interface ApiResponseError extends MetaCommon {
 export interface ErrorObject {
   [key: string]: string;
 }
+
+export interface ResponseTypeOnlyId extends MetaSuccess {
+  data: {
+    _id: string;
+  };
+}

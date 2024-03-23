@@ -10,7 +10,7 @@ import {
 
 type MenuItem = Required<MenuProps>["items"][number];
 
-const { DASHBOARD, ORDER, PRODUCT } = routes;
+const { DASHBOARD, ORDER, PRODUCT, NEW_ORDER } = routes;
 
 const getItem = ({
   label,
@@ -19,7 +19,7 @@ const getItem = ({
   children,
 }: {
   label: React.ReactNode;
-  pathname: string;
+  pathname?: string;
   icon?: React.ReactNode;
   children?: MenuItem[];
 }): MenuItem => {
@@ -46,14 +46,23 @@ const useSidebarMenuItems = () => {
       icon: <DashboardOutlined />,
     });
     menuItems.push({
-      pathname: ORDER,
-      label: "Order",
-      icon: <DatabaseOutlined />,
+      pathname: PRODUCT,
+      label: "Products",
+      icon: <ProductOutlined />,
     });
     menuItems.push({
-      pathname: PRODUCT,
-      label: "Product",
-      icon: <ProductOutlined />,
+      label: "Orders",
+      icon: <DatabaseOutlined />,
+      children: [
+        {
+          pathname: ORDER,
+          label: "Order List",
+        },
+        {
+          label: "Create order",
+          pathname: NEW_ORDER,
+        },
+      ].map((item) => getItem(item)),
     });
 
     return menuItems.map((item) => getItem(item));
