@@ -54,6 +54,15 @@ export const productApi = createApi({
       invalidatesTags: (result, error, data) =>
         error ? [] : [{ type: tagName, id: data.id }],
     }),
+
+    deleteProduct: builder.mutation<ResponseTypeOnlyId, string>({
+      query: (productId) => ({
+        url: `${AppUrl.PRODUCT}/${productId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: (result, error, productId) =>
+        error ? [] : [{ type: tagName, id: productId }],
+    }),
   }),
 });
 
@@ -62,4 +71,5 @@ export const {
   useLazyGetOneProductQuery,
   useUpdateOneProductMutation,
   useCreateProductMutation,
+  useDeleteProductMutation,
 } = productApi;

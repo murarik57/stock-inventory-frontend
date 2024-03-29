@@ -17,6 +17,7 @@ export interface InvoiceObject {
 export interface OrderObject {
   _id: string;
   companyName: string;
+  invoice: InvoiceObject;
   products: ProductObjectInOrder[];
   createdAt: Date;
 }
@@ -34,5 +35,9 @@ export interface OrderListRespnse extends MetaSuccess {
 }
 
 export interface CreateOrderPayload {
+  data: FormData;
+}
+export interface UploadInvoicePayload {
+  id: string;
   data: FormData;
 }

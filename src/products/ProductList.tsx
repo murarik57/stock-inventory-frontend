@@ -1,8 +1,15 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { EditOutlined, PlusCircleOutlined } from "@ant-design/icons";
+import {
+  DeleteOutlined,
+  EditOutlined,
+  PlusCircleOutlined,
+} from "@ant-design/icons";
 import { Button, Col, Row, Table } from "antd";
 import { ProductListRow, productColumns } from "./components/productColumns";
-import { useLazyProductListQuery } from "./duck/productApi";
+import {
+  useDeleteProductMutation,
+  useLazyProductListQuery,
+} from "./duck/productApi";
 import { showNotification } from "Utils/commonFunction";
 import { ProductObject } from "Interfaces/product.interface";
 import AddProductModal from "./components/AddProductModal";
@@ -10,15 +17,34 @@ import AddProductModal from "./components/AddProductModal";
 const ProductList = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [selectedProduct, selectProduct] = useState<ProductObject | null>(null);
+  const [deleteId, setDeleteId] = useState<string>("");
 
   const [getAllProducts, { isFetching, isError, error, data }] =
     useLazyProductListQuery();
+
+  const [
+    deleteProduct,
+    { isLoading, isError: isDeleteError, error: deleteError, isSuccess },
+  ] = useDeleteProductMutation();
 
   useEffect(() => {
     if (isError) {
       showNotification("error", error);
     }
   }, [error, isError]);
+
+  useEffect(() => {
+    if (isDeleteError) {
+      showNotification("error", deleteError);
+    }
+  }, [deleteError, isDeleteError]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      showNotification("success", "Product Deleted");
+      setDeleteId("");
+    }
+  }, [isSuccess]);
 
   useEffect(() => {
     getAllProducts();
@@ -45,16 +71,31 @@ const ProductList = () => {
           description: item?.description,
           quantity: item?.quantity,
           action: (
-            <Button
-              onClick={() => handleModal(true, item)}
-              icon={<EditOutlined />}
-            />
+            <Row className="gap-2" wrap={false}>
+              <Button
+                onClick={() => handleModal(true, item)}
+                icon={<EditOutlined />}
+              />
+              <Button
+                onClick={() => deleteProduct(item._id)}
+                icon={<DeleteOutlined />}
+                loading={deleteId === item._id && isLoading}
+              />
+            </Row>
           ),
         });
       });
     }
     return products;
-  }, [data?.data, handleModal, isError, isFetching]);
+  }, [
+    data?.data,
+    deleteId,
+    deleteProduct,
+    handleModal,
+    isError,
+    isFetching,
+    isLoading,
+  ]);
 
   return (
     <Col>

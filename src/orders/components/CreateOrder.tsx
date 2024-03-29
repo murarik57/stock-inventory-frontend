@@ -1,9 +1,9 @@
 import {
   CheckCircleOutlined,
-  DeleteOutlined,
+  // DeleteOutlined,
   // MinusCircleOutlined,
   // PlusCircleOutlined,
-  UploadOutlined,
+  // UploadOutlined,
 } from "@ant-design/icons";
 import {
   Button,
@@ -11,7 +11,7 @@ import {
   Input,
   Row,
   TreeSelect,
-  Upload,
+  // Upload,
   SelectProps,
   // Tooltip,
   InputNumber,
@@ -23,14 +23,14 @@ import { useCreateOrderMutation } from "orders/duck/orderApi";
 import { useLazyProductListQuery } from "products/duck/productApi";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { beforeUpload, showNotification } from "Utils/commonFunction";
+import { showNotification } from "Utils/commonFunction";
 import routes from "Utils/routes";
 
 const CreateOrder = () => {
   const navigate = useNavigate();
 
   const [error, setError] = useState<ErrorObject>({});
-  const [fileList, setFileList] = useState<any>();
+  // const [fileList, setFileList] = useState<any>();
   const [selectedValues, setSelectedValues] = useState<any>([]);
   const [{ companyName, products }, setState] = useState<any>({
     companyName: "",
@@ -116,9 +116,9 @@ const CreateOrder = () => {
     return !!Object.keys(error)?.length;
   }, [companyName, products?.length]);
 
-  const handleUpload = useCallback(({ file }: any) => {
-    setFileList(file);
-  }, []);
+  // const handleUpload = useCallback(({ file }: any) => {
+  //   setFileList(file);
+  // }, []);
 
   const filterOption: any = useCallback(
     (inputValue: string, treeNode: DefaultOptionType) =>
@@ -164,11 +164,11 @@ const CreateOrder = () => {
       formData.append("companyName", companyName);
       formData.append("products", JSON.stringify(products));
 
-      if (fileList) formData.append("invoice", fileList);
+      // if (fileList) formData.append("invoice", fileList);
 
       await createOrder(formData);
     }
-  }, [companyName, createOrder, fileList, hasError, products]);
+  }, [companyName, createOrder, hasError, products]);
 
   return (
     <Col>
@@ -188,7 +188,7 @@ const CreateOrder = () => {
           )}
         </Col>
       </Row>
-      <Row className="mt-5 gap-3" align={"middle"}>
+      {/* <Row className="mt-5 gap-3" align={"middle"}>
         <Col className="whitespace-nowrap text-16">Upload Invoice:</Col>
         <Col>
           {!fileList ? (
@@ -212,7 +212,7 @@ const CreateOrder = () => {
             </Row>
           )}
         </Col>
-      </Row>
+      </Row> */}
       <Row className="mt-5 gap-3" align={"middle"}>
         <Col className="whitespace-nowrap text-16">Products</Col>
         <Col sm={24} xs={24} md={18} lg={12} xl={12}>
