@@ -122,7 +122,6 @@ const ProductList = () => {
             showSizeChanger: false,
           }}
           scroll={{
-            x: 600,
             y: "calc(70vh - 70px)",
           }}
         />

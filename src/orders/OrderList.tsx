@@ -13,7 +13,7 @@ import {
 import { orderColumns, OrderListRow } from "./components/orderColums";
 import { useNavigate } from "react-router-dom";
 import routes from "Utils/routes";
-import { OrderObject, UploadInvoicePayload } from "Interfaces/order.interface";
+import { OrderObject } from "Interfaces/order.interface";
 import dayjs from "dayjs";
 import "./components/Orders.scss";
 
@@ -117,7 +117,15 @@ const OrderList = () => {
       });
     }
     return orders;
-  }, [data?.data, isError, isFetching, navigateToEditPage]);
+  }, [
+    data?.data,
+    handleUpload,
+    isError,
+    isFetching,
+    isLoading,
+    navigateToEditPage,
+    selectedOrder,
+  ]);
 
   return (
     <Col>
@@ -144,7 +152,6 @@ const OrderList = () => {
             showSizeChanger: false,
           }}
           scroll={{
-            x: 600,
             y: "calc(70vh - 70px)",
           }}
         />
